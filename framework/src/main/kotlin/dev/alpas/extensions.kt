@@ -25,7 +25,7 @@ import java.util.*
 import java.util.concurrent.CompletableFuture
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
-import javax.servlet.http.HttpServletResponse
+import jakarta.servlet.http.HttpServletResponse
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext

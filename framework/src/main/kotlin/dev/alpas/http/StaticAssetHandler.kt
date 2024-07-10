@@ -6,8 +6,8 @@ import org.eclipse.jetty.server.handler.ResourceHandler
 import org.eclipse.jetty.server.handler.gzip.GzipHandler
 import org.eclipse.jetty.util.resource.Resource
 import java.io.File
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
+import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletResponse
 
 class StaticAssetHandler(app: Application) {
     private val gzipHandlers: List<GzipHandler> by lazy { makeHandlers(app) }

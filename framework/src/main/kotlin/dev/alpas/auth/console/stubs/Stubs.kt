@@ -1,9 +1,11 @@
 package dev.alpas.auth.console.stubs
 
+import java.util.*
+
 internal class Stubs {
     companion object {
         fun stubFor(name: String?): String {
-            return when (name?.toLowerCase()) {
+            return when (name?.lowercase(Locale.getDefault())) {
                 "view.header" -> headerViewStub()
                 "view.login" -> loginViewStub()
                 "view.register" -> registerViewStub()

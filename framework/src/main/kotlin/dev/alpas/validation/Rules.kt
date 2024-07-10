@@ -50,6 +50,7 @@ open class Required(private val message: ErrorMessage = null) : Rule() {
 
 // Attribute must be present and the value must not be null. It can be empty.
 open class NotNull(private val message: ErrorMessage = null) : Rule() {
+    @Suppress("KotlinConstantConditions")
     override fun check(attribute: String, value: Any?): Boolean {
         return (value != null).also {
             if (!it) {

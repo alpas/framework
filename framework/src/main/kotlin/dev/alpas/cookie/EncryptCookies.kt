@@ -8,7 +8,7 @@ import dev.alpas.http.X_CSRF_TOKEN_KEY
 import dev.alpas.make
 import dev.alpas.makeElse
 import dev.alpas.session.SessionConfig
-import javax.servlet.http.Cookie
+import jakarta.servlet.http.Cookie
 
 class EncryptCookies : Middleware<HttpCall>() {
     override fun invoke(passable: HttpCall, forward: Handler<HttpCall>) {

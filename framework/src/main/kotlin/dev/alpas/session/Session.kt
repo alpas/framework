@@ -2,7 +2,7 @@ package dev.alpas.session
 
 import dev.alpas.isOneOf
 import org.eclipse.jetty.server.session.Session
-import javax.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletRequest
 
 const val CSRF_SESSION_KEY = "_csrf"
 const val VALIDATION_ERRORS_KEY = "_validation_errors"

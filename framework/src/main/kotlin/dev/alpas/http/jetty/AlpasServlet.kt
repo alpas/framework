@@ -8,9 +8,9 @@ import dev.alpas.routing.BaseRouteLoader
 import dev.alpas.routing.Route
 import dev.alpas.routing.RouteMatchStatus
 import dev.alpas.routing.Router
-import javax.servlet.http.HttpServlet
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
+import jakarta.servlet.http.HttpServlet
+import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletResponse
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
 

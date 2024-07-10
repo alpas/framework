@@ -3,11 +3,12 @@ package dev.alpas
 import io.github.cdimascio.dotenv.dotenv
 import java.io.File
 import java.nio.file.Paths
+import java.util.*
 
 internal class EnvironmentServiceProvider : ServiceProvider {
     private val runMode by lazy {
         val mode = System.getenv(RUN_MODE) ?: System.getProperty(RUN_MODE) ?: "server"
-        RunMode.valueOf(mode.toUpperCase())
+        RunMode.valueOf(mode.uppercase(Locale.getDefault()))
     }
 
     override fun register(app: Application) {

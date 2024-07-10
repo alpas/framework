@@ -3,8 +3,8 @@ package dev.alpas.http
 import dev.alpas.Application
 import dev.alpas.appConfig
 import dev.alpas.config
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
+import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletResponse
 
 private val HttpServletRequest.isPreflight: Boolean
     get() {

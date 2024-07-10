@@ -7,7 +7,7 @@ import javax.crypto.BadPaddingException
 internal data class EncryptedData(val iv: String, val salt: String, val value: String?)
 
 class Encrypter(private val key: String) {
-    fun encrypt(value: String): String? {
+    fun encrypt(value: String): String {
         val iv = makeIV()
         val salt = makeSalt()
         val encryptedValue = Encryption.getDefault(key, salt, iv).encryptOrNull(value)?.trim()

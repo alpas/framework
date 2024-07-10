@@ -2,8 +2,8 @@ package dev.alpas.http
 
 import dev.alpas.secureRandomString
 import dev.alpas.session.CSRF_SESSION_KEY
-import javax.servlet.http.HttpSessionEvent
-import javax.servlet.http.HttpSessionListener
+import jakarta.servlet.http.HttpSessionEvent
+import jakarta.servlet.http.HttpSessionListener
 
 internal class SessionListener : HttpSessionListener {
     override fun sessionCreated(se: HttpSessionEvent) {

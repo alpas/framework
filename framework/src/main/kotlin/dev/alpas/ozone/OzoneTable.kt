@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package dev.alpas.ozone
 
 import dev.alpas.extensions.toCamelCase

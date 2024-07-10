@@ -3,6 +3,7 @@ package dev.alpas.auth
 import dev.alpas.md5
 import dev.alpas.ozone.OzoneEntity
 import java.time.Instant
+import java.util.*
 
 interface BaseUser<E : BaseUser<E>> : OzoneEntity<E>, Authenticatable {
     override var id: Long
@@ -16,7 +17,7 @@ interface BaseUser<E : BaseUser<E>> : OzoneEntity<E>, Authenticatable {
 
     @ExperimentalUnsignedTypes
     fun gravatarUrl(): String {
-        val hash = email?.trim()?.toLowerCase()?.md5() ?: ""
+        val hash = email?.trim()?.lowercase(Locale.getDefault())?.md5() ?: ""
         return "//www.gravatar.com/avatar/$hash?s=160&d=robohash"
     }
 

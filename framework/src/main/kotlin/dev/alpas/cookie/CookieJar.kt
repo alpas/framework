@@ -1,7 +1,7 @@
 package dev.alpas.cookie
 
 import java.time.Duration
-import javax.servlet.http.Cookie
+import jakarta.servlet.http.Cookie
 
 class CookieJar(internal val incomingCookies: Array<Cookie> = emptyArray()) {
     val outgoingCookies = mutableListOf<Cookie>()

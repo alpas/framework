@@ -1,3 +1,5 @@
+@file:Suppress("MemberVisibilityCanBePrivate")
+
 package dev.alpas.pulsar
 
 import dev.alpas.*
@@ -11,10 +13,10 @@ import io.restassured.RestAssured
 import io.restassured.config.SessionConfig
 import io.restassured.http.ContentType
 import io.restassured.specification.RequestSpecification
+import org.apache.http.client.utils.URIBuilder
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
-import uy.klutter.core.uri.buildUri
 import kotlin.reflect.KClass
 
 lateinit var app: Alpas
@@ -50,6 +52,7 @@ open class AlpasTest(entryClass: Class<*>) : Alpas(emptyArray(), entryClass) {
     }
 }
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 abstract class TestBase(entryClass: Class<*>) {
     open val configureSession = true
     protected val app: AlpasTest by lazy {
@@ -126,7 +129,7 @@ abstract class TestBase(entryClass: Class<*>) {
 
     protected fun assertRedirectExternal(location: String, status: Int? = null) {
         val redirect = call().redirect().redirectResponse
-        val uri = buildUri(redirect.location).clearQuery().build().asString()
+        val uri = URIBuilder(redirect.location).clearParameters().build().toString()
         assertEquals(location, uri)
         if (status != null) {
             assertEquals(status, redirect.statusCode)

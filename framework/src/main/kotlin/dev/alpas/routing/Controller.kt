@@ -11,7 +11,7 @@ import dev.alpas.queue.QueueDispatcher
 import dev.alpas.queue.job.Job
 import dev.alpas.validation.ValidationGuard
 import java.time.Duration
-import javax.servlet.http.Cookie
+import jakarta.servlet.http.Cookie
 import kotlin.reflect.KClass
 
 open class Controller {

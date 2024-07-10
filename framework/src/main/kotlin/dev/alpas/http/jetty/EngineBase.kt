@@ -12,7 +12,7 @@ import java.net.InetSocketAddress
 import java.nio.channels.ServerSocketChannel
 
 abstract class EngineBase {
-    internal fun start(app: Application, servlet: AlpasServlet): Server? {
+    internal fun start(app: Application, servlet: AlpasServlet): Server {
         val sessionHandler = app.tryMake<SessionManager>()?.handler()
         val config = app.config<AppConfig>()
         return server(app, servlet, config, sessionHandler).also { it.start() }

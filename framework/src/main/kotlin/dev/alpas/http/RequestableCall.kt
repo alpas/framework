@@ -8,9 +8,9 @@ import dev.alpas.ifNotBlank
 import dev.alpas.session.Session
 import org.eclipse.jetty.server.Request
 import java.nio.charset.Charset
-import javax.servlet.MultipartConfigElement
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.Part
+import jakarta.servlet.MultipartConfigElement
+import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.Part
 
 const val CONTENT_TYPE_KEY = "Content-Type"
 const val X_CSRF_TOKEN_KEY = "X-CSRF-TOKEN"
@@ -94,10 +94,10 @@ class Requestable(private val servletRequest: HttpServletRequest) : RequestableC
     override val fullUri get() = "$uri$queryString"
     override val url get() = servletRequest.requestURL.toString()
     override val fullUrl get() = servletRequest.requestURL.append(queryString).toString()
-    override val rootUrl get() = jettyRequest.rootURL.toString()
+    override val rootUrl get() = jettyRequest.httpURI.toString()
     override val session by lazy { Session(servletRequest) }
-    override val multiparts by lazy { servletRequest.parts }
-    override val encoding get() = Charset.forName(servletRequest.characterEncoding ?: Charsets.UTF_8.name())
+    override val multiparts: Iterable<Part> by lazy { servletRequest.parts }
+    override val encoding: Charset get() = Charset.forName(servletRequest.characterEncoding ?: Charsets.UTF_8.name())
     override val multipartFiles by lazy {
         prepareForMultipart()
         multiparts.filter { it.isFile }

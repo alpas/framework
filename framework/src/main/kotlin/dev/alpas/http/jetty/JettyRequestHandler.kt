@@ -1,12 +1,12 @@
 package dev.alpas.http.jetty
 
 import dev.alpas.http.SessionListener
+import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletResponse
 import org.eclipse.jetty.server.Request
 import org.eclipse.jetty.server.session.SessionHandler
 import org.eclipse.jetty.servlet.ServletContextHandler
 import org.eclipse.jetty.servlet.ServletHolder
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
 
 internal class JettyRequestHandler(val session: SessionHandler?, servlet: AlpasServlet) :
     ServletContextHandler(null, "/", SESSIONS) {
